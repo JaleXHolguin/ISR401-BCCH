@@ -1,0 +1,208 @@
+\documentclass[aspectratio=169,12pt]{beamer}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{tgheros}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{csquotes}
+\usepackage[backend=bibtex,style=ieee,sorting=none,maxbibnames=2,minbibnames=1,doi=true,url=false,isbn=false]{biblatex}
+\addbibresource{referencias.bib}
+% Las notas sobre las versiones consultadas permanecen en el archivo .bib.
+\AtEveryBibitem{\clearfield{note}}
+\urlstyle{same}
+\definecolor{Paper}{HTML}{F7F5EF}
+\definecolor{Night}{HTML}{112C36}
+\definecolor{Ink}{HTML}{19343B}
+\definecolor{Accent}{HTML}{00766E}
+\definecolor{Amber}{HTML}{E7AD62}
+\definecolor{Muted}{HTML}{5A6C70}
+\definecolor{Pale}{HTML}{B7C9CA}
+\setbeamercolor{normal text}{fg=Ink,bg=Paper}
+\setbeamercolor{background canvas}{bg=Paper}
+\setbeamercolor{structure}{fg=Accent}
+\setbeamercolor{frametitle}{fg=Ink,bg=Paper}
+\setbeamercolor{footline}{fg=Muted,bg=Paper}
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\setbeamertemplate{navigation symbols}{}
+\setbeamersize{text margin left=11mm,text margin right=11mm}
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+\setbeamerfont{bibliography item}{size=\scriptsize}
+\setbeamercolor{bibliography entry author}{fg=Ink}
+\setbeamercolor{bibliography entry title}{fg=Ink}
+\setbeamercolor{bibliography entry location}{fg=Ink}
+\setbeamercolor{bibliography entry note}{fg=Ink}
+\newcommand{\etiqueta}[1]{{\fontsize{7.5}{9}\selectfont\bfseries\color{Accent}#1\par}}
+\newcommand{\texto}[1]{{\fontsize{11}{14}\selectfont #1\par}}
+\newcommand{\fuentesactuales}{}
+\newcommand{\fuentesdiapositiva}[1]{\gdef\fuentesactuales{#1}}
+\setbeamertemplate{frametitle}{\vspace*{4mm}\etiqueta{\secname}\vspace{1.8mm}{\usebeamerfont{frametitle}\insertframetitle\par}\vspace{3mm}}
+\setbeamertemplate{footline}{%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=9mm,dp=2mm,
+    leftskip=11mm,rightskip=11mm]{footline}
+    {\fontsize{6.8}{8}\selectfont
+      \ifx\fuentesactuales\empty
+        \strut
+      \else
+        \textbf{Fuentes}\hspace{2mm}\fuentesactuales
+      \fi\par}
+    \vspace{1.5mm}
+    {\fontsize{6.5}{8}\selectfont
+      ISR401-BCCH\hfill EXP-1\hspace{5mm}
+      {\bfseries\insertframenumber\,/\,\inserttotalframenumber}\par}
+  \end{beamercolorbox}
+}
+\title{IA generativa como apoyo a la elicitación}
+\author{Equipo BCCH}
+\date{}
+\begin{document}
+{
+\setbeamercolor{background canvas}{bg=Night}
+\setbeamercolor{normal text}{fg=white,bg=Night}
+\begin{frame}[plain,t]
+\vspace*{8mm}
+{\fontsize{7.5}{9}\selectfont\bfseries\color{Pale}INGENIERÍA DE REQUERIMIENTOS\par}
+\vspace{7mm}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.76\textwidth}
+{\fontsize{27}{30}\selectfont\bfseries\color{white}IA generativa\\como apoyo\\a la elicitación\par}
+\vspace{4mm}
+{\fontsize{12}{15}\selectfont\color{Pale}Capacidades, límites y riesgos\par}
+\end{column}
+\begin{column}{0.19\textwidth}
+\vspace{2mm}
+{\fontsize{7.5}{9}\selectfont\color{Pale}TEMA\par}
+\vspace{1mm}
+{\fontsize{48}{50}\selectfont\bfseries\color{Amber}08\par}
+\end{column}
+\end{columns}
+\vfill
+{\fontsize{9}{11}\selectfont\color{white}Equipo BCCH\par}
+\vspace{1.5mm}
+{\fontsize{7.5}{9}\selectfont\color{Pale}GA-SUM-02 · EXP-1\par}
+\vspace{7mm}
+\end{frame}
+}
+\section{FUNDAMENTOS}
+\begin{frame}[t]{Elicitación de requisitos}
+\fuentesdiapositiva{\cite{ireb2026foundation} IREB, 2026\qquad
+  \cite{washizaki2024swebok} SWEBOK, 2024}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.47\textwidth}
+{\fontsize{23}{27}\selectfont\bfseries Comprender\\necesidades\par}
+\vspace{4mm}
+\texto{Hacer explícitas las expectativas de los interesados.}
+\end{column}
+\begin{column}{0.45\textwidth}
+\etiqueta{FUENTES}
+\texto{Personas, documentos y sistemas existentes.}
+\vspace{2.5mm}
+\etiqueta{TÉCNICAS}
+\texto{Entrevistas, observación, talleres y prototipos, según el contexto.}
+\vspace{2.5mm}
+\etiqueta{CONOCIMIENTO}
+\texto{Las necesidades también pueden ser implícitas o difíciles de expresar.}
+\end{column}
+\end{columns}
+\vfill
+{\fontsize{10}{13}\selectfont\bfseries\color{Accent}Los requisitos candidatos necesitan análisis y validación.\par}
+\vspace{2mm}
+\end{frame}
+\begin{frame}[t]{IA generativa y modelos de lenguaje}
+\fuentesdiapositiva{\cite{cheng2026genai} Cheng et al., 2026\qquad
+  \cite{vogelsang2025guideline} Vogelsang y Fischbach, 2025}
+\vspace{2mm}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.46\textwidth}
+\etiqueta{IA GENERATIVA}
+\vspace{2mm}
+{\fontsize{20}{24}\selectfont\bfseries Genera contenido\\con patrones\\aprendidos.\par}
+\end{column}
+\begin{column}{0.46\textwidth}
+\etiqueta{LLM GENERATIVO}
+\vspace{2mm}
+\texto{Un modelo de lenguaje de gran tamaño puede generar texto a partir de instrucciones y contexto.}
+\vspace{2mm}
+\etiqueta{PROMPT}
+\texto{La entrada expresa la tarea y puede aportar datos y un formato de respuesta.}
+\end{column}
+\end{columns}
+\vfill
+{\fontsize{10}{13}\selectfont\bfseries\color{Accent}Una respuesta fluida puede contener errores.\par}
+\vspace{2mm}
+\end{frame}
+\section{APLICACIONES}
+\begin{frame}[t]{Apoyo durante la elicitación}
+\fuentesdiapositiva{\cite{cheng2026genai} Cheng et al., 2026\qquad
+  \cite{arora2024advancing} Arora et al., 2024}
+\vspace{1mm}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.08\textwidth}{\fontsize{20}{24}\selectfont\color{Accent}01\par}\end{column}
+\begin{column}{0.86\textwidth}{\large\bfseries Preparar preguntas\par}\texto{Explorar necesidades y aclarar aspectos del dominio.}\end{column}
+\end{columns}
+\vspace{5mm}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.08\textwidth}{\fontsize{20}{24}\selectfont\color{Accent}02\par}\end{column}
+\begin{column}{0.86\textwidth}{\large\bfseries Examinar información\par}\texto{Organizar documentos y señalar posibles vacíos o ambigüedades.}\end{column}
+\end{columns}
+\vspace{5mm}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.08\textwidth}{\fontsize{20}{24}\selectfont\color{Accent}03\par}\end{column}
+\begin{column}{0.86\textwidth}{\large\bfseries Proponer requisitos candidatos\par}\texto{Formular propuestas para contrastarlas con sus fuentes y validarlas con los interesados.}\end{column}
+\end{columns}
+\vfill
+\vspace{2mm}
+\end{frame}
+\section{LÍMITES Y RIESGOS}
+\begin{frame}[t]{Riesgos y revisión humana}
+\fuentesdiapositiva{Riesgos: \cite{cheng2026genai,arora2024advancing}\qquad
+  Criterios de revisión: \cite{ireb2026foundation,vogelsang2025guideline}}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.46\textwidth}
+\etiqueta{RIESGO}
+\end{column}
+\begin{column}{0.44\textwidth}
+\etiqueta{VERIFICACIÓN}
+\end{column}
+\end{columns}
+\vspace{3mm}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.46\textwidth}
+{\bfseries Información inventada}\par
+\texto{Reglas sin respaldo.}
+\end{column}
+\begin{column}{0.44\textwidth}
+\texto{Vincular cada requisito con su fuente.}
+\end{column}
+\end{columns}
+\vspace{4mm}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.46\textwidth}
+{\bfseries Sesgos y contexto}\par
+\texto{Perspectivas omitidas.}
+\end{column}
+\begin{column}{0.44\textwidth}
+\texto{Contrastar propuestas con los interesados.}
+\end{column}
+\end{columns}
+\vspace{4mm}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.46\textwidth}
+{\bfseries Privacidad}\par
+\texto{Datos sin protección.}
+\end{column}
+\begin{column}{0.44\textwidth}
+\texto{Resguardar los datos de los interesados.}
+\end{column}
+\end{columns}
+\vfill
+\vspace{1mm}
+\end{frame}
+% El caso propio, la comparación y la demostración se incorporarán en las siguientes etapas.
+\section{BIBLIOGRAFÍA}
+\begin{frame}[t]{Referencias}
+\fuentesdiapositiva{}
+\renewcommand*{\bibfont}{\scriptsize}
+\setlength{\bibitemsep}{1.5mm}
+\printbibliography[heading=none]
+\end{frame}
+\end{document}
