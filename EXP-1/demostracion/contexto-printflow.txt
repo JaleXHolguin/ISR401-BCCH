@@ -1,0 +1,37 @@
+PRINTFLOW - ENTRADA DOCUMENTAL PARA LA DEMOSTRACIÓN
+
+Origen: adaptación de la propuesta académica descrita en «PrintFlow - Informe final en alta resolución.pdf» (8 de noviembre de 2026), páginas 1, 3 y 5. Esta entrada omite los datos personales y la organización del equipo de la otra asignatura.
+
+NATURALEZA DEL CASO
+PrintFlow es una propuesta de aplicación web para un taller de impresión. El informe plantea que la dispersión de pedidos, archivos y aprobaciones dificulta reconocer la versión de diseño autorizada y puede causar reimpresiones y demoras. Se trata de información documental del caso, no de hallazgos de entrevistas ni de mediciones nuevas de esta actividad.
+
+OBJETIVO
+Centralizar pedidos, versiones de diseño y aprobaciones para facilitar el seguimiento de la producción hasta la entrega.
+
+ACTORES DOCUMENTADOS
+- Cliente: revisa diseños, aprueba una versión o solicita cambios y consulta sus pedidos.
+- Vendedor: registra pedidos con artículos, especificaciones y fecha de entrega.
+- Operador: carga versiones de diseño y actualiza los estados de los artículos habilitados para producción.
+- Administrador: consulta pedidos pendientes de aprobación y atrasados.
+
+HECHOS DISPONIBLES
+F01. Un pedido puede contener varios artículos con sus especificaciones. Fuente: página 1 e historia 2, página 3.
+F02. Los archivos son privados y el sistema conserva versiones del diseño. Fuente: página 1.
+F03. El cliente puede aprobar una versión concreta y vigente o solicitar cambios con un comentario. Fuente: página 1 e historia 4, página 3.
+F04. El operador actualiza el estado de los artículos habilitados para producción. El informe pide validar el paso a producción. Fuente: página 1 e historia 5, página 3.
+F05. El informe identifica el riesgo de que una versión nueva pase a producción con la aprobación de otra versión. Fuente: página 5. No especifica todas las reglas necesarias para resolver ese riesgo.
+
+ALCANCE DE ESTA DEMOSTRACIÓN
+Explorar la aprobación de versiones y el paso a producción. Pedir a la IA preguntas de elicitación y requisitos candidatos, vinculados a F01-F05, para su posterior revisión humana.
+Quedan fuera de esta prueba los pagos, la facturación, las compras de equipos y los indicadores generales del negocio. Esto limita la demostración, no redefine el alcance completo del proyecto.
+
+INCERTIDUMBRES QUE REQUIEREN ELICITACIÓN
+Q01. ¿Qué ocurre con la aprobación anterior cuando se carga otra versión?
+Q02. ¿La aprobación se aplica a un artículo, un archivo o al pedido completo?
+Q03. ¿Quién puede enviar un diseño a revisión y quién puede aprobarlo?
+Q04. ¿Cómo se resuelven una aprobación y una actualización de versión simultáneas?
+Q05. ¿Qué información debe conservarse para comprobar quién aprobó qué versión y cuándo?
+Q06. ¿Qué ocurre si se solicitan cambios después de iniciar la producción?
+
+ESTADO DE LAS RESPUESTAS
+Las preguntas anteriores todavía no tienen respuestas confirmadas. Las reglas adicionales que proponga la IA deben identificarse como propuestas pendientes de validación. Las respuestas de la IA no representan testimonios de clientes ni entrevistas reales.
