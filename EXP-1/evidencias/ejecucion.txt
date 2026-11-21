@@ -1,7 +1,7 @@
 REGISTRO DE LA EJECUCIÓN - PRUEBA CON IA (PrintFlow, EXP-1)
 
 Quién ejecutó la prueba: Yerai David Chalacan Toala
-Fecha real de ejecución: 2026-11-21 (hora exacta: no disponible)
+Fecha real de ejecución: 2026-11-21 
 Herramienta: Gemini
 Modelo: versión gratuita; nombre del modelo no disponible
 Versión: no disponible
