@@ -1,0 +1,100 @@
+A continuación presento el análisis de elicitación para PrintFlow centrado en la aprobación de versiones de diseño y el paso a producción, construido exclusivamente a partir del contexto documental proporcionado.
+
+1. Preguntas de elicitación por actor
+Las siguientes preguntas están formuladas de forma abierta y neutral para explorar las reglas de negocio aún no especificadas en el documento:
+
+Cliente
+
+¿De qué manera espera revisar las versiones de diseño disponibles y qué información necesita ver antes de aprobar una versión o solicitar cambios?
+
+Cuando un pedido contiene varios artículos, ¿cómo entiende que funciona la aprobación de cada diseño frente a la aprobación del pedido completo?
+
+Si solicita cambios después de que un diseño ya fue aprobado o después de que comenzó la producción, ¿qué situaciones considera que deberían ocurrir con ese trabajo?
+
+Operador
+
+¿Qué sucede en el flujo de trabajo cuando carga una nueva versión de diseño sobre un artículo que ya contaba con una versión aprobada anteriormente?
+
+¿Qué condiciones o estados debe cumplir un artículo para considerarse habilitado para pasar a producción y cómo se evita que se imprima una versión distinta de la aprobada?
+
+¿Cómo se maneja en la práctica la situación en la que se carga una nueva versión justo cuando se está aprobando o enviando a revisión una versión anterior?
+
+Vendedor
+
+Al registrar un pedido con uno o varios artículos y sus especificaciones, ¿cómo se vinculan esos artículos con las versiones de diseño que posteriormente se cargan y aprueban?
+
+Cuando un cliente solicita cambios en el diseño o cuando una aprobación se retrasa, ¿qué impacto ocurre sobre la fecha de entrega registrada del pedido y cómo se coordina con el resto del flujo?
+
+Administrador
+
+¿Qué criterios definen cuándo un pedido o artículo está «pendiente de aprobación» o «atrasado» en el seguimiento?
+
+¿Qué registro histórico o evidencia necesita consultar para verificar qué versión fue aprobada, por quién y en qué momento?
+
+¿Qué reglas o excepciones deberían aplicarse si alguien distinto del cliente o del operador interviene en enviar un diseño a revisión, aprobarlo o moverlo a producción?
+
+2 y 3. Requisitos candidatos y respaldo documental (F01–F05)
+Todas las reglas adicionales incluidas en estos requisitos candidatos son propuestas pendientes de validación con los interesados.
+
+RC-01 (Aprobación de versión vigente y solicitud de cambios): El sistema permitirá al Cliente revisar una versión concreta y vigente de diseño y registrar su aprobación o solicitar cambios acompañados de un comentario. (Propuesta pendiente de validación: el sistema exigirá que el comentario no esté vacío al solicitar cambios y restringirá la aprobación a la versión vigente).
+
+Respaldo documental: F03.
+
+RC-02 (Invalidación al cargar una nueva versión): Cuando se cargue una nueva versión de diseño, el sistema marcará como no vigente la versión anterior y dejará sin efecto cualquier aprobación previa asociada a esa versión anterior hasta que la nueva versión sea aprobada. (Propuesta pendiente de validación: no se asume que la aprobación de una versión previa se transfiera automáticamente a una versión posterior).
+
+Respaldo documental: F02, F03, F05.
+
+RC-03 (Alcance de la aprobación a nivel de artículo): El sistema registrará el estado de aprobación y las versiones de diseño por cada artículo del pedido, de modo que un pedido con varios artículos pueda tener estados de aprobación distintos por artículo. (Propuesta pendiente de validación: se propone el nivel de artículo en lugar de archivo único o pedido completo).
+
+Respaldo documental: F01, F03.
+
+RC-04 (Validación previa al paso a producción): El sistema impedirá que un artículo pase a producción o que el Operador avance su estado de producción si no existe una aprobación vigente correspondiente a la versión de diseño actual del artículo. (Propuesta pendiente de validación: regla concreta para mitigar el riesgo identificado en F05 y atender la validación solicitada en F04).
+
+Respaldo documental: F04, F05.
+
+RC-05 (Control de concurrencia entre aprobación y carga de versión): El sistema impedirá que se consolide una aprobación sobre una versión de diseño si, de manera simultánea, se cargó una versión nueva sobre el mismo elemento, exigiendo revisar la versión más reciente. (Propuesta pendiente de validación: mecanismo de control de concurrencia).
+
+Respaldo documental: F02, F03, F05.
+
+RC-06 (Trazabilidad y auditoría de aprobaciones): El sistema conservará un registro histórico de cada aprobación que incluya, al menos, la identidad de quien aprobó, la versión aprobada y la fecha y hora de la aprobación, manteniendo la privacidad de los archivos. (Propuesta pendiente de validación: conjunto mínimo de campos de auditoría).
+
+Respaldo documental: F02, F03.
+
+RC-07 (Solicitud de cambios tras iniciar producción): Si se registra una solicitud de cambios sobre un artículo cuyo estado ya indica que inició la producción, el sistema marcará el artículo con una alerta o estado de excepción y notificará al Operador y al Administrador antes de continuar imprimiendo. (Propuesta pendiente de validación: flujo de excepción post-inicio de producción).
+
+Respaldo documental: F03, F04.
+
+RC-08 (Envío a revisión y autorización para aprobar): El sistema permitirá que el Operador envíe una versión de diseño cargada a revisión del Cliente y restringirá la acción de aprobar la versión exclusivamente al rol de Cliente. (Propuesta pendiente de validación: asignación explícita de quién envía a revisión y quién aprueba).
+
+Respaldo documental: F03, F04 (y roles documentados de Cliente y Operador).
+
+RC-09 (Consulta de pendientes y atrasos para seguimiento): El sistema permitirá al Administrador consultar los pedidos que se encuentran pendientes de aprobación o atrasados dentro del flujo de seguimiento hasta la entrega. (Propuesta pendiente de validación: criterios exactos de cálculo de «atrasado» y «pendiente de aprobación»).
+
+Respaldo documental: sin respaldo en F01-F05 (aparece en la descripción del rol Administrador y en el Objetivo del documento, pero no figura en la lista de hechos F01 a F05).
+
+4. Suposiciones y decisiones pendientes de confirmación
+Suposiciones realizadas en la propuesta
+Suposición S-01: Cargar una nueva versión reemplaza la vigencia de la versión anterior y anula aprobaciones anteriores. (Propuesta pendiente de validación — Toca: Q01).
+
+Suposición S-02: La unidad natural de aprobación y avance a producción es el artículo del pedido, no el pedido completo ni un archivo aislado compartido entre artículos. (Propuesta pendiente de validación — Toca: Q02).
+
+Suposición S-03: El Operador pone la versión a disposición para revisión y el Cliente es quien aprueba, sin que otros roles aprueben en su lugar. (Propuesta pendiente de validación — Toca: Q03).
+
+Suposición S-04: Ante una colisión simultánea entre aprobar una versión y subir una nueva, prevalece la carga de la nueva versión y se bloquea la aprobación desactualizada. (Propuesta pendiente de validación — Toca: Q04).
+
+Suposición S-05: Comprobar quién aprobó qué versión y cuándo requiere registrar actor, identificador/versión de diseño y marca de tiempo. (Propuesta pendiente de validación — Toca: Q05).
+
+Suposición S-06: Pedir cambios después de iniciar la producción no borra el historial previo, sino que abre una excepción visible para producción y administración. (Propuesta pendiente de validación — Toca: Q06).
+
+Decisiones que requieren confirmación de los interesados
+Decisión D-01: Confirmar si al subir una nueva versión se revoca automáticamente la aprobación anterior, se conserva con advertencia o se exige reaprobar siempre. (Toca: Q01).
+
+Decisión D-02: Confirmar si la aprobación se realiza por artículo, por archivo de diseño o por pedido completo (y qué ocurre si un pedido tiene varios artículos). (Toca: Q02).
+
+Decisión D-03: Confirmar qué actor o rol está facultado para enviar un diseño a revisión y qué actor o rol tiene autoridad para aprobarlo. (Toca: Q03).
+
+Decisión D-04: Confirmar la regla de resolución cuando ocurren simultáneamente una aprobación y la carga de una versión nueva (bloqueo, rechazo de la aprobación tardía, revisión manual, etc.). (Toca: Q04).
+
+Decisión D-05: Confirmar el conjunto exacto de datos y evidencias que deben conservarse para auditar quién aprobó qué versión y cuándo. (Toca: Q05).
+
+Decisión D-06: Confirmar qué sucede si se solicitan cambios después de iniciar la producción (detener trabajo, reabrir versión, generar nuevo artículo/orden o gestionar fuera del sistema). (Toca: Q06).
