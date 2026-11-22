@@ -1,7 +1,7 @@
 REVISIÓN DE LA RESPUESTA DE IA — PRINTFLOW (PARTE 2, EXP-1)
 Repositorio: https://github.com/JaleXHolguin/ISR401-BCCH
 Fecha de revisión: 21-11-2026
-Responsable: completar nombre del integrante encargado de Parte 2
+Responsable: Contreras Chavez Kevin German
 Herramienta revisada: Gemini, modalidad gratuita; versión/modelo específico no disponible según ejecucion.txt.
 Fuentes internas: demostracion/contexto-printflow.txt; evidencias/prompt.txt; evidencias/respuesta-ia.txt; evidencias/ejecucion.txt.
 Alcance: aprobación de versiones de diseño y paso a producción. Evidencia documental, no entrevistas realizadas.

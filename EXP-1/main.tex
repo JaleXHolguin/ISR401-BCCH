@@ -285,7 +285,7 @@ Propuestas de una sola ejecución, pendientes de revisión humana.\par}
 
 % PARTE 2 — Revision humana de la respuesta de IA
 \section{REVISIÓN HUMANA}
-\begin{frame}[t]{Revisión humana de la respuesta de IA}
+\begin{frame}[t,shrink=14]{Revisión humana de la respuesta de IA}
 \fuentesdiapositiva{PrintFlow: contexto F01--F05 y evidencias/respuesta-ia.txt}
 \vspace{1mm}
 \begin{columns}[T,onlytextwidth]
@@ -309,9 +309,66 @@ Propuestas de una sola ejecución, pendientes de revisión humana.\par}
 \par}
 \end{column}
 \end{columns}
-\vfill
+\vspace{2.5mm}
 {\fontsize{8.5}{10.5}\selectfont\bfseries\color{Accent}
 Conclusión: borrador útil para elicitar; ninguna regla adicional se toma como validada por el cliente.\par}
+\vspace{1mm}
+\end{frame}
+
+\section{CONCLUSIONES}
+\begin{frame}[t,shrink=14]{Conclusiones de la prueba en PrintFlow}
+\fuentesdiapositiva{Resultados: evidencias/respuesta-ia.txt y evidencias/revision-respuesta.txt}
+\vspace{1mm}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.47\textwidth}
+\etiqueta{APORTE OBSERVADO}
+\vspace{1.5mm}
+{\fontsize{10.2}{13}\selectfont
+Una ejecución de Gemini propuso \textbf{11 preguntas} y \textbf{9 requisitos candidatos} para explorar aprobaciones y el paso a producción.\par}
+\vspace{4mm}
+\etiqueta{REVISIÓN NECESARIA}
+\vspace{1.5mm}
+{\fontsize{10.2}{13}\selectfont
+Los \textbf{9 requisitos} incluyen reglas por confirmar y \textbf{5 preguntas} necesitan mejoras de redacción. RC-09 tiene respaldo contextual, aunque no en F01--F05.\par}
+\end{column}
+\begin{column}{0.47\textwidth}
+\etiqueta{CONSULTAS PENDIENTES}
+\vspace{1.5mm}
+{\fontsize{10.2}{13}\selectfont
+Acordar vigencia y unidad de aprobación, roles autorizados, simultaneidad, registro histórico y cambios después de iniciar producción.\par}
+\vspace{4mm}
+\etiqueta{LÍMITE DEL RESULTADO}
+\vspace{1.5mm}
+{\fontsize{10.2}{13}\selectfont
+Es una prueba documental de una herramienta, no una validación con clientes ni una comparación del rendimiento de distintas IA.\par}
+\end{column}
+\end{columns}
+\vspace{3mm}
+{\fontsize{9}{11}\selectfont\bfseries\color{Accent}
+Gemini aportó un borrador útil; aprobar requisitos exige contrastarlos con los interesados.\par}
+\vspace{1mm}
+\end{frame}
+
+\section{USO DE IA}
+\begin{frame}[t,shrink=14]{Declaración de uso de IA}
+\fuentesdiapositiva{Registros: evidencias/ejecucion.txt y evidencias/revision-respuesta.txt}
+\vspace{1mm}
+\etiqueta{HERRAMIENTAS Y PROPÓSITO}
+\vspace{1.5mm}
+{\fontsize{10}{13}\selectfont
+\textbf{Gemini, modalidad gratuita} (modelo y versión no disponibles): generación de preguntas y requisitos candidatos con el contexto documental de PrintFlow, en una ejecución del 21/11/2026.\par}
+\vspace{3mm}
+{\fontsize{10}{13}\selectfont
+\textbf{ChatGPT, GPT-6}: apoyo para redactar el cierre, preparar archivos de entrega y realizar una comprobación técnica preliminar.\par}
+\vspace{4mm}
+\etiqueta{CONTROL Y RESPONSABILIDAD HUMANA}
+\vspace{1.5mm}
+{\fontsize{10}{13}\selectfont
+La respuesta original de Gemini se conservó sin editar y se contrastó con el contexto F01--F05 en la revisión del equipo. Las propuestas permanecen pendientes de validación con los interesados.\par}
+\vspace{2.5mm}
+{\fontsize{9.5}{12}\selectfont\color{Muted}
+El equipo deberá verificar esta declaración, los archivos y la compilación antes de publicar la entrega definitiva.\par}
+\vfill
 \vspace{1mm}
 \end{frame}
 
